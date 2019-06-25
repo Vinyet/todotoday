@@ -2,7 +2,7 @@
 
 ToDo ToDay is a 3-column based planner for your daily chores. 
 
-Left column: To Do 
+Left column: To Do
 Middle column: Doing
 Right column: Done
 
