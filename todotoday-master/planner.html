@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo ToDay</title>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+
+	<!-- JQUERY --> 
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript" src="main.js"></script>
+	<script>
+		$( function() {
+		  $( "ul.droptrue" ).sortable({
+			connectWith: "ul"
+		  });
+	   
+		  $( "ul.dropfalse" ).sortable({
+			connectWith: "ul",
+			dropOnEmpty: false
+		  });
+	   
+		  $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+		} );
+		</script>
+	
+	<style>
+		#sortable1, #sortable2, #sortable3 { list-style-type: none; margin: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 100%;}
+		#sortable1 li, #sortable2 li, #sortable3 li { margin: 5px; padding: 5px; font-size: 1.2em; }
+		</style>
+</head>
+<body>
+
+<div id="container">
+
+<!-- TOP BANNER -->
+
+	<div id="banner">
+		<h1><span style="color: white;">TO</span>DO <span style="color: white;">TO</span>DAY</h1>
+		<p id="display-time"><script>
+			myFunc();
+			setInterval(myFunc, 1000);
+			</script>
+		</p>
+		<br style="clear:both;"/>
+	</div>	
+
+<!--BOXES-->
+
+<div id="boxes">
+
+	<!-- TO DO box -->
+	<div class="box" id="box-todo">
+
+		<div class="label">
+			<h2>To do</h2>
+		</div>
+
+		<div class="ui-widget-content" id="draggable">
+		
+			<!-- >ul id="sortable1" class="droptrue">
+				<li class="ui-state-default"><input type="text" min="0" max="100"></input></li>
+				<li class="ui-state-default"><input type="text" min="0" max="100"></li>
+				<li class="ui-state-default"><input type="text" min="0" max="100"></li>
+				<li class="ui-state-default"><input type="text" min="0" max="100"></li>
+				<li class="ui-state-default"><input type="text" min="0" max="100"></li>
+			  </ul-->
+			  <ul id="sortable1" class="droptrue">
+				<li class="ui-state-default">Can be dropped..</li>
+				<li class="ui-state-default">..on an empty list</li>
+				<li class="ui-state-default">Item 3</li>
+				<li class="ui-state-default">Item 4</li>
+				<li class="ui-state-default"><input type="text" min="0" max="100"></input></li>
+			  </ul>
+		</div>
+
+	</div>
+
+	<!-- DOING box -->
+	<div class="box" id="box-doing">
+
+		<div class="label">
+			<h2>Doing</h2>
+		</div>
+
+		<div class="ui-widget-header" id="droppable">
+			
+			<!-- ->ul id="sortable2" class="dropfalse">
+				<li class="ui-state-highlight"><input type="text" min="0" max="100"></li>
+				
+			  </ul-->
+			  <ul id="sortable2" class="dropfalse">
+				<li class="ui-state-highlight">Cannot be dropped..</li>
+				<li class="ui-state-highlight">..on an empty list</li>
+				<li class="ui-state-highlight">Item 3</li>
+				<li class="ui-state-highlight">Item 4</li>
+				<li class="ui-state-highlight">Item 5</li>
+			  </ul>
+		</div>
+
+	</div>
+
+	<!-- DONE box-->
+	<div class="box" id="box-done">
+
+		<div class="label">
+			<h2>Done</h2>
+		</div>
+
+		<div class="ui-widget-header" id="dropppable">
+			   
+  <ul id="sortable3" class="droptrue">
+</ul>	
+		</div>
+
+	</div>
+	
+</div>
+<div style="clear: left;"></div>
+</div>	
+
+
+</body>
+</html>
+
+   
+  
