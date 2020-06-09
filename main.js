@@ -1,11 +1,12 @@
-function myFunc()  {
+function getTime()  {
     var now = new Date();
     var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     document.getElementById("display-time").innerHTML = time;
 }
 
+
 /*
-$( function() {
+$(function() {
     $( "#draggable" ).draggable({
         helper: 'clone',
         revert: 'invalid',
@@ -17,6 +18,4 @@ $( function() {
             .addClass( "ui-state-highlight" )
             .find( "p");
     }
-});
-
-*/
+})})*/

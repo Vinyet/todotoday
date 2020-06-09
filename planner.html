@@ -4,99 +4,83 @@
 	<title>ToDo ToDay</title>
 	<meta charset="utf8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
-
+	<!-- JS -->
+	<script type="text/javascript" src="main.js"></script>
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
-
-	<!-- JQUERY --> 
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-
+	<!-- JQUERY -->
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	<script>
-		$( function() {
-		  $( "#sortable" ).sortable();
-		  $( "#sortable" ).disableSelection();
-		} );
+		$(function() {	
+			$(".sortable").sortable({});
+			$(".sortable").disableSelection();
+			$(".draggable").draggable({ 
+				cursor: "crosshair",
+				revert: "invalid",
+				});
+			$(".droppable").droppable({
+				drop: function( event, ui ) {}
+			})
+		});
 	</script>
-
-	<!-- JAVASCRIPT -->
-	<script type="text/javascript" src="main.js"></script>
-
 </head>
 <body>
 
-<div id="container">
+	<div id="container">
 
-<!-- TOP BANNER -->
+	<!-- TOP BANNER -->
+		<div class="banner">
+			<h1><span>TO</span>DO <span>TO</span>DAY</h1>
+			<p id="display-time"><script>
+				getTime();
+				setInterval(getTime, 1000);
+				</script>
+			</p>
+			<br style="clear:both;"/>
+		</div>	
 
-	<div id="banner">
-		<h1><span style="color: white;">TO</span>DO <span style="color: white;">TO</span>DAY</h1>
-		<p id="display-time"><script>
-			myFunc();
-			setInterval(myFunc, 1000);
-			</script>
-		</p>
-		<br style="clear:both;"/>
+	<!--BOXES-->
+		<div id="boxes">
+
+			<!-- TO DO box -->
+			<div class="box" id="box-todo">
+				<div class="label">
+					<h2>TO DO</h2>
+				</div>
+				<div>
+					<ul class="sortable">
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- DOING box -->
+			<div class="box" id="box-doing">
+				<div class="label">
+					<h2>DOING</h2>
+				</div>
+					<ul class="sortable droppable"></ul>
+			</div>
+
+			<!-- DONE box-->
+			<div class="box" id="box-done">
+				<div class="label">
+					<h2>DONE</h2>
+				</div>
+				<div class="droppable">
+					<ul class="sortable"></ul>
+				</div>
+			</div>	
+		</div>
 	</div>	
-
-<!--BOXES-->
-
-<div id="boxes">
-
-	<!-- TO DO box -->
-	<div class="box" id="box-todo">
-
-		<div class="label">
-			<h2>To do</h2>
-		</div>
-
-	<div class="ui-widget-content" id="draggable">
-		<ul id="sortable">
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>				<li><input type="text" min="0" max="100"></input></li>
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>
-			<li id="draggable"><input type="text" min="0" max="100"></input></li>
-		</ul>
-	</div>
-
-	</div>
-
-	<!-- DOING box -->
-	<div class="box" id="box-doing">
-
-		<div class="label">
-			<h2>Doing</h2>
-		</div>
-
-		<div class="ui-widget-header" id="droppable">
-			<ul id="sortable">
-				<li></li>
-			</ul>
-		</div>
-
-	</div>
-
-	<!-- DONE box-->
-	<div class="box" id="box-done">
-
-		<div class="label">
-			<h2>Done</h2>
-		</div>
-
-		<div class="ui-widget-header" id="dropppable">
-
-		</div>
-
-	</div>	
-</div>
-<div style="clear: left;"></div>
-</div>	
-
 
 </body>
 </html>
