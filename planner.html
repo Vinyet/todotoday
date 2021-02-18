@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
 	<!-- JQUERY -->
  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	<script>
 		$(function() {	
 			$(".sortable").sortable({});
@@ -20,9 +20,12 @@
 			$(".draggable").draggable({ 
 				cursor: "crosshair",
 				revert: "invalid",
-				});
-			$(".droppable").droppable({
-				drop: function( event, ui ) {}
+				})
+			$("#list-doing").droppable({
+				drop: function(event, ui) {}
+			})
+			$("#list-done").droppable({
+				drop: function(event, ui) {}
 			})
 		});
 	</script>
@@ -31,52 +34,53 @@
 
 	<div id="container">
 
-	<!-- TOP BANNER -->
-		<div class="banner">
+	<!-- HEADER -->
+		<header>
 			<h1><span>TO</span>DO <span>TO</span>DAY</h1>
 			<p id="display-time"><script>
 				getTime();
 				setInterval(getTime, 1000);
 				</script>
 			</p>
-			<br style="clear:both;"/>
-		</div>	
+		</header>	
 
 	<!--BOXES-->
-		<div id="boxes">
+		<div id="boxes-container">
 
 			<!-- TO DO box -->
 			<div class="box" id="box-todo">
-				<div class="label">
+				<div class="label" id="todo-label">
 					<h2>TO DO</h2>
 				</div>
 				<div>
-					<ul class="sortable">
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
-						<li class="ui-state-default" class="draggable"><input type="text"></input></li>
+					<ul class="sortable" id="list-todo">
+						<li class="ui-state-default draggable"><input type="text"></input></li>
+						<li class="ui-state-default draggable"><input type="text"></input></li>
+						<li class="ui-state-default draggable"><input type="text"></input></li>
+						<li class="ui-state-default draggable"><input type="text"></input></li>
+						<li class="ui-state-default draggable"><input type="text"></input></li>
+						<li class="ui-state-default draggable"><input type="text"></input></li>
 					</ul>
 				</div>
 			</div>
 
 			<!-- DOING box -->
 			<div class="box" id="box-doing">
-				<div class="label">
+				<div class="label" id="doing-label">
 					<h2>DOING</h2>
 				</div>
-					<ul class="sortable droppable"></ul>
+				<div>
+					<ul class="sortable" id="list-doing"></ul>
+				</div>
 			</div>
 
 			<!-- DONE box-->
 			<div class="box" id="box-done">
-				<div class="label">
+				<div class="label" id="done-label">
 					<h2>DONE</h2>
 				</div>
-				<div class="droppable">
-					<ul class="sortable"></ul>
+				<div>
+					<ul class="sortable" id="list-done"></ul>
 				</div>
 			</div>	
 		</div>
